@@ -20,15 +20,13 @@ public class Hotel {
     private int cantidadDeHabitaciones;
     private int numeroDeAdultos;
     private int numeroDeNinnos;
-    
-    
-    
+        
     private String nombre;
     private String direccion;
     private String pais;
     private int telefono;
     private int annoDeConstruccion;
-    //private ?? tipoDeHospedaje;
+    //private String tipoDeHospedaje;
     private String tamañoDelHotel;
     //private ?? horaDeCheckIn;
     //private ?? horaDeCheckOut;

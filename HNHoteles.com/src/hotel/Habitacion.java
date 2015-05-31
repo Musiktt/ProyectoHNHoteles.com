@@ -27,5 +27,5 @@ public class Habitacion {
     private boolean todoIncluido;
     private boolean areaDeFumado;
     
-    private int precio;
+    private double precio;
 }

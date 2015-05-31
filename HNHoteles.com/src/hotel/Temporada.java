@@ -4,16 +4,15 @@
  * and open the template in the editor.
  */
 
-package usuario;
+package hotel;
 
 /**
  *
  * @author Stward
  */
-public class Usuario {
+public class Temporada {
+    private String codigo;
+    private String fechaDeInicio;
+    private String fechaDeFin;
     private String nombre;
-    private String apellidos;
-    private String genero;
-    private String email;
-    private String contraseña; //contener entre 6 y 20 letras, al menos un numero
-}   
+}

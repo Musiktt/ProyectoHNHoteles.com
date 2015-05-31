@@ -10,6 +10,6 @@ package usuario;
  *
  * @author Stward
  */
-public class Administrador {
+public class Administrador extends Usuario{
     
 }

@@ -4,15 +4,12 @@
  * and open the template in the editor.
  */
 
-package usuario;
+package hotel;
 
 /**
  *
  * @author Stward
  */
-public class Cliente extends Usuario{
-    private int numeroDeSocio;
-    private String pais;
-    private int telefono;
-    private int tipoDeMoneda;//Moneda de predileccion
+public class Precio {
+    
 }

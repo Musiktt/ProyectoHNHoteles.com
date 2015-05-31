@@ -6,6 +6,8 @@
 
 package usuario;
 
+import hotel.Reservacion;
+
 /**
  *
  * @author Stward
@@ -15,4 +17,9 @@ public class Cliente extends Usuario{
     private String pais;
     private int telefono;
     private int tipoDeMoneda;//Moneda de predileccion
+    
+    private Reservacion reservacionesCanceladas;
+    private Reservacion reservacionesPendientes;
+    private Reservacion reservasCompletadas;
+   
 }

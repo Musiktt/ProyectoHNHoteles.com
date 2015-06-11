@@ -10,28 +10,30 @@ package hotel;
  *
  * @author Stward
  */
-public class Precio {
-    private double monto;
+public class Price {
+    private double amount;
 
-    public Precio() {
+    public Price() {
     }
 
-    public Precio(double monto) {
-        this.monto = monto;
+    public Price(double amount) {
+        this.amount = amount;
     }
 
-    public double getMonto() {
-        return monto;
+    public double getAmount() {
+        return amount;
     }
 
-    public void setMonto(double monto) {
-        this.monto = monto;
+    public void setAmount(double amount) {
+        this.amount = amount;
     }
 
     @Override
     public String toString() {
-        return "Precio{" + "monto=" + monto + '}';
+        return "Price{" + "amount=" + amount + '}';
     }
+
+    
     
     
     

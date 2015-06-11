@@ -13,6 +13,6 @@ package hotel;
 
 //Clase registro que servirá como relación entre Habitación y Reservación
 //que posee el responsable, la cantidad de adutos y la cantidad de niños por habitación
-public class Registro {
+public class Registry {
     
 }

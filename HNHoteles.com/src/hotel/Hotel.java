@@ -13,201 +13,212 @@ import java.util.ArrayList;
  * @author Stward
  */
 public class Hotel {
-    //busqueda de hoteles
-    private String descripcionDelHotel;
-    private String fechaDeEntrada;
-    private String fechaDeSalida;
-    private int cantidadDeHabitaciones;
-    private int numeroDeAdultos;
-    private int numeroDeNinnos;
+    //hotel searching
+    private String hotelDescription;
+    private String startDate;
+    private String endDate;
+    private int roomsIn;
+    private int adultsIn;
+    private int childrenIn;
         
-    private String nombre;
-    private String direccion;
-    private String pais;
-    private int telefono;
-    private int annoDeConstruccion;
+    private String name;
+    private String address;
+    private String country;
+    private int phoneNumber;
+    private int buildingDate;
 
-    private String tamañoDelHotel;
-    private String horaDeCheckIn;
-    private String horaDeCheckOut;
+    private String hotelSize;
+    private String checkInHour;
+    private String checkOutHour;
     
-    private String tipoDeHospedaje;//cabina, hotel, hostel, todo incluido, etc
+    private String lodgingType;//cabina, hotel, hostel, todo incluido, etc
     
-    private int numeroDeEstrellas;
-
-    private ArrayList<Atractivos> atraccionesCercanas;
-    private ArrayList<String> listaDeFotografias;
-    private ArrayList<Habitacion> listaDeHabitaciones;
+    private int stars;
+    //lists
+    private ArrayList<Attractions> attractionsList;
+    private ArrayList<String> picturesList;
+    private ArrayList<Room> roomsList;
+    private ArrayList<Service> servicesList;
+    private ArrayList<Reservation> reservationsList;
 
     public Hotel() {
     }
 
-    public Hotel(String descripcionDelHotel, String fechaDeEntrada, String fechaDeSalida, int cantidadDeHabitaciones, int numeroDeAdultos, int numeroDeNinnos, String nombre, String direccion, String pais, int telefono, int annoDeConstruccion, String horaDeCheckIn, String horaDeCheckOut, String tipoDeHospedaje, int numeroDeEstrellas) {
-        this.descripcionDelHotel = descripcionDelHotel;
-        this.fechaDeEntrada = fechaDeEntrada;
-        this.fechaDeSalida = fechaDeSalida;
-        this.cantidadDeHabitaciones = cantidadDeHabitaciones;
-        this.numeroDeAdultos = numeroDeAdultos;
-        this.numeroDeNinnos = numeroDeNinnos;
-        this.nombre = nombre;
-        this.direccion = direccion;
-        this.pais = pais;
-        this.telefono = telefono;
-        this.annoDeConstruccion = annoDeConstruccion;
-        this.horaDeCheckIn = horaDeCheckIn;
-        this.horaDeCheckOut = horaDeCheckOut;
-        this.tipoDeHospedaje = tipoDeHospedaje;
-        this.numeroDeEstrellas = numeroDeEstrellas;
-        this.atraccionesCercanas = new ArrayList<>();
-        this.listaDeHabitaciones = new ArrayList<>();
-        this.listaDeFotografias = new ArrayList<>();
+    public Hotel(String hotelDescription, String startDate, String endDate, int roomsIn, int adultsIn, int childrenIn, String name, String address, String country, int phoneNumber, int buildingDate, String hotelSize, String checkInHour, String checkOutHour, String lodgingType, int stars) {
+        this.hotelDescription = hotelDescription;
+        this.startDate = startDate;
+        this.endDate = endDate;
+        this.roomsIn = roomsIn;
+        this.adultsIn = adultsIn;
+        this.childrenIn = childrenIn;
+        this.name = name;
+        this.address = address;
+        this.country = country;
+        this.phoneNumber = phoneNumber;
+        this.buildingDate = buildingDate;
+        this.hotelSize = hotelSize;
+        this.checkInHour = checkInHour;
+        this.checkOutHour = checkOutHour;
+        this.lodgingType = lodgingType;
+        this.stars = stars;
+        
+        this.attractionsList = new ArrayList<>();
+        this.picturesList = new ArrayList<>();
+        this.reservationsList = new ArrayList<>();
+        this.roomsList = new ArrayList<>();
+        this.servicesList = new ArrayList<>();
     }
 
-    public String getDescripcionDelHotel() {
-        return descripcionDelHotel;
+    public String getHotelDescription() {
+        return hotelDescription;
     }
 
-    public String getFechaDeEntrada() {
-        return fechaDeEntrada;
+    public void setHotelDescription(String hotelDescription) {
+        this.hotelDescription = hotelDescription;
     }
 
-    public String getFechaDeSalida() {
-        return fechaDeSalida;
+    public String getStartDate() {
+        return startDate;
     }
 
-    public int getCantidadDeHabitaciones() {
-        return cantidadDeHabitaciones;
+    public void setStartDate(String startDate) {
+        this.startDate = startDate;
     }
 
-    public int getNumeroDeAdultos() {
-        return numeroDeAdultos;
+    public String getEndDate() {
+        return endDate;
     }
 
-    public int getNumeroDeNinnos() {
-        return numeroDeNinnos;
+    public void setEndDate(String endDate) {
+        this.endDate = endDate;
     }
 
-    public String getNombre() {
-        return nombre;
+    public int getRoomsIn() {
+        return roomsIn;
     }
 
-    public String getDireccion() {
-        return direccion;
+    public void setRoomsIn(int roomsIn) {
+        this.roomsIn = roomsIn;
     }
 
-    public String getPais() {
-        return pais;
+    public int getAdultsIn() {
+        return adultsIn;
     }
 
-    public int getTelefono() {
-        return telefono;
+    public void setAdultsIn(int adultsIn) {
+        this.adultsIn = adultsIn;
     }
 
-    public int getAnnoDeConstruccion() {
-        return annoDeConstruccion;
+    public int getChildrenIn() {
+        return childrenIn;
     }
 
-    public String getTamañoDelHotel() {
-        return tamañoDelHotel;
+    public void setChildrenIn(int childrenIn) {
+        this.childrenIn = childrenIn;
     }
 
-    public String getHoraDeCheckIn() {
-        return horaDeCheckIn;
+    public String getName() {
+        return name;
     }
 
-    public String getHoraDeCheckOut() {
-        return horaDeCheckOut;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public String getTipoDeHospedaje() {
-        return tipoDeHospedaje;
+    public String getAddress() {
+        return address;
     }
 
-    public int getNumeroDeEstrellas() {
-        return numeroDeEstrellas;
+    public void setAddress(String address) {
+        this.address = address;
     }
 
-    public ArrayList<Atractivos> getAtraccionesCercanas() {
-        return this.atraccionesCercanas;
+    public String getCountry() {
+        return country;
     }
 
-    public ArrayList<String> getListaDeFotografias() {
-        return this.listaDeFotografias;
+    public void setCountry(String country) {
+        this.country = country;
     }
 
-    public ArrayList<Habitacion> getListaDeHabitaciones() {
-        return this.listaDeHabitaciones;
+    public int getPhoneNumber() {
+        return phoneNumber;
     }
 
-    public void setDescripcionDelHotel(String descripcionDelHotel) {
-        this.descripcionDelHotel = descripcionDelHotel;
+    public void setPhoneNumber(int phoneNumber) {
+        this.phoneNumber = phoneNumber;
     }
 
-    public void setFechaDeEntrada(String fechaDeEntrada) {
-        this.fechaDeEntrada = fechaDeEntrada;
+    public int getBuildingDate() {
+        return buildingDate;
     }
 
-    public void setFechaDeSalida(String fechaDeSalida) {
-        this.fechaDeSalida = fechaDeSalida;
+    public void setBuildingDate(int buildingDate) {
+        this.buildingDate = buildingDate;
     }
 
-    public void setCantidadDeHabitaciones(int cantidadDeHabitaciones) {
-        this.cantidadDeHabitaciones = cantidadDeHabitaciones;
+    public String getHotelSize() {
+        return hotelSize;
     }
 
-    public void setNumeroDeAdultos(int numeroDeAdultos) {
-        this.numeroDeAdultos = numeroDeAdultos;
+    public void setHotelSize(String hotelSize) {
+        this.hotelSize = hotelSize;
     }
 
-    public void setNumeroDeNinnos(int numeroDeNinnos) {
-        this.numeroDeNinnos = numeroDeNinnos;
+    public String getCheckInHour() {
+        return checkInHour;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public void setCheckInHour(String checkInHour) {
+        this.checkInHour = checkInHour;
     }
 
-    public void setDireccion(String direccion) {
-        this.direccion = direccion;
+    public String getCheckOutHour() {
+        return checkOutHour;
     }
 
-    public void setPais(String pais) {
-        this.pais = pais;
+    public void setCheckOutHour(String checkOutHour) {
+        this.checkOutHour = checkOutHour;
     }
 
-    public void setTelefono(int telefono) {
-        this.telefono = telefono;
+    public String getLodgingType() {
+        return lodgingType;
     }
 
-    public void setAnnoDeConstruccion(int annoDeConstruccion) {
-        this.annoDeConstruccion = annoDeConstruccion;
+    public void setLodgingType(String lodgingType) {
+        this.lodgingType = lodgingType;
     }
 
-    public void setTamañoDelHotel(String tamañoDelHotel) {
-        this.tamañoDelHotel = tamañoDelHotel;
+    public int getStars() {
+        return stars;
     }
 
-    public void setHoraDeCheckIn(String horaDeCheckIn) {
-        this.horaDeCheckIn = horaDeCheckIn;
+    public void setStars(int stars) {
+        this.stars = stars;
     }
 
-    public void setHoraDeCheckOut(String horaDeCheckOut) {
-        this.horaDeCheckOut = horaDeCheckOut;
+    public ArrayList<Attractions> getAttractionsList() {
+        return this.attractionsList;
     }
 
-    public void setTipoDeHospedaje(String tipoDeHospedaje) {
-        this.tipoDeHospedaje = tipoDeHospedaje;
+    public ArrayList<String> getPicturesList() {
+        return this.picturesList;
     }
 
-    public void setNumeroDeEstrellas(int numeroDeEstrellas) {
-        this.numeroDeEstrellas = numeroDeEstrellas;
+    public ArrayList<Room> getRoomsList() {
+        return this.roomsList;
+    }
+
+    public ArrayList<Service> getServicesList() {
+        return this.servicesList;
+    }
+
+    public ArrayList<Reservation> getReservationsList() {
+        return this.reservationsList;
     }
 
     @Override
     public String toString() {
-        return "Hotel{" + "descripcionDelHotel=" + descripcionDelHotel + ", fechaDeEntrada=" + fechaDeEntrada + ", fechaDeSalida=" + fechaDeSalida + ", cantidadDeHabitaciones=" + cantidadDeHabitaciones + ", numeroDeAdultos=" + numeroDeAdultos + ", numeroDeNinnos=" + numeroDeNinnos + ", nombre=" + nombre + ", direccion=" + direccion + ", pais=" + pais + ", telefono=" + telefono + ", annoDeConstruccion=" + annoDeConstruccion + ", tama\u00f1oDelHotel=" + tamañoDelHotel + ", horaDeCheckIn=" + horaDeCheckIn + ", horaDeCheckOut=" + horaDeCheckOut + ", tipoDeHospedaje=" + tipoDeHospedaje + ", numeroDeEstrellas=" + numeroDeEstrellas + ", atraccionesCercanas=" + atraccionesCercanas + ", listaDeFotografias=" + listaDeFotografias + ", listaDeHabitaciones=" + listaDeHabitaciones + '}';
+        return "Hotel{" + "hotelDescription=" + hotelDescription + ", startDate=" + startDate + ", endDate=" + endDate + ", roomsIn=" + roomsIn + ", adultsIn=" + adultsIn + ", childrenIn=" + childrenIn + ", name=" + name + ", address=" + address + ", country=" + country + ", phoneNumber=" + phoneNumber + ", buildingDate=" + buildingDate + ", hotelSize=" + hotelSize + ", checkInHour=" + checkInHour + ", checkOutHour=" + checkOutHour + ", lodgingType=" + lodgingType + ", stars=" + stars + ", attractionsList=" + attractionsList + ", picturesList=" + picturesList + ", roomsList=" + roomsList + ", servicesList=" + servicesList + ", reservationsList=" + reservationsList + '}';
     }
-    
-    
-
 }

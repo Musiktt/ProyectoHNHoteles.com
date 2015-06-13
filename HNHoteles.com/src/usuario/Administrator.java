@@ -6,6 +6,10 @@
 
 package usuario;
 
+import hnhoteles.com.Additional;
+import hotel.Hotel;
+import hotel.Reservation;
+
 /**
  *
  * @author Stward

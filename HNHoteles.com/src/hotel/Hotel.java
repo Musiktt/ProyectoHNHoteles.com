@@ -6,7 +6,10 @@
 
 package hotel;
 
+import factory.Room;
 import java.util.ArrayList;
+import usuario.Administrator;
+import usuario.Client;
 
 /**
  *
@@ -40,6 +43,8 @@ public class Hotel {
     private ArrayList<Room> roomsList;
     private ArrayList<Service> servicesList;
     private ArrayList<Reservation> reservationsList;
+    private ArrayList<Client> clientsList;
+    private  ArrayList<Administrator> administratorList;
 
     public Hotel() {
     }
@@ -67,6 +72,8 @@ public class Hotel {
         this.reservationsList = new ArrayList<>();
         this.roomsList = new ArrayList<>();
         this.servicesList = new ArrayList<>();
+        this.clientsList = new ArrayList<>();
+        this.administratorList = new ArrayList<>();
     }
 
     public String getHotelDescription() {
@@ -196,7 +203,8 @@ public class Hotel {
     public void setStars(int stars) {
         this.stars = stars;
     }
-
+    
+    //all Hotel's lists
     public ArrayList<Attractions> getAttractionsList() {
         return this.attractionsList;
     }
@@ -217,8 +225,17 @@ public class Hotel {
         return this.reservationsList;
     }
 
+    public ArrayList<Client> getClientsList() {
+        return this.clientsList;
+    }
+
+    public ArrayList<Administrator> getAdministratorList() {
+        return this.administratorList;
+    }
+
     @Override
     public String toString() {
-        return "Hotel{" + "hotelDescription=" + hotelDescription + ", startDate=" + startDate + ", endDate=" + endDate + ", roomsIn=" + roomsIn + ", adultsIn=" + adultsIn + ", childrenIn=" + childrenIn + ", name=" + name + ", address=" + address + ", country=" + country + ", phoneNumber=" + phoneNumber + ", buildingDate=" + buildingDate + ", hotelSize=" + hotelSize + ", checkInHour=" + checkInHour + ", checkOutHour=" + checkOutHour + ", lodgingType=" + lodgingType + ", stars=" + stars + ", attractionsList=" + attractionsList + ", picturesList=" + picturesList + ", roomsList=" + roomsList + ", servicesList=" + servicesList + ", reservationsList=" + reservationsList + '}';
+        return "Hotel{" + "hotelDescription=" + hotelDescription + ", startDate=" + startDate + ", endDate=" + endDate + ", roomsIn=" + roomsIn + ", adultsIn=" + adultsIn + ", childrenIn=" + childrenIn + ", name=" + name + ", address=" + address + ", country=" + country + ", phoneNumber=" + phoneNumber + ", buildingDate=" + buildingDate + ", hotelSize=" + hotelSize + ", checkInHour=" + checkInHour + ", checkOutHour=" + checkOutHour + ", lodgingType=" + lodgingType + ", stars=" + stars + '}';
     }
+    
 }

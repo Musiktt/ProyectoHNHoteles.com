@@ -6,6 +6,8 @@
 
 package hotel;
 
+
+import factory.Room;
 import java.util.ArrayList;
 import usuario.Client;
 
@@ -111,7 +113,5 @@ public class Reservation {
     public String toString() {
         return "Reservation{" + "rooms=" + rooms + ", entrance=" + start + ", exit=" + end + ", roomType=" + roomType + ", total=" + total + ", personInCharge=" + personInCharge + ", childrenIn=" + childrenIn + ", adultsIn=" + adultsIn + ", hotel=" + hotel + '}';
     }
-    
-    
     
 }

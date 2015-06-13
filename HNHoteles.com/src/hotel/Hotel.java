@@ -19,8 +19,7 @@ public class Hotel {
     //hotel searching
     private String hotelDescription;
     private int roomsIn;
-    private int adultsIn;
-    private int childrenIn;
+
         
     private String name;
     private String address;
@@ -32,9 +31,16 @@ public class Hotel {
     private String checkInHour;
     private String checkOutHour;
     
-    private String lodgingType;//cabina, hotel, hostel, todo incluido, etc
+    private String lodgingType;//cabin, hotel, hostel, all-in, etc
     
     private int stars;
+    
+    private boolean livingRoom;
+     private boolean terrace;
+     private boolean seaView;
+     private boolean allIn;
+     private boolean smokingArea;
+    
     //lists
     private ArrayList<Attractions> attractionsList;
     private ArrayList<String> picturesList;
@@ -47,14 +53,13 @@ public class Hotel {
     public Hotel() {
     }
 
-    public Hotel(String hotelDescription, int roomsIn, int adultsIn, int childrenIn, String name, String address, String country, int phoneNumber, int buildingDate, String hotelSize, String checkInHour, String checkOutHour, String lodgingType, int stars) {
+    public Hotel(String hotelDescription, int roomsIn,String name, String address, int phoneNumber, int buildingDate, String hotelSize, String checkInHour, String checkOutHour, String lodgingType, int stars) {
         this.hotelDescription = hotelDescription;
         this.roomsIn = roomsIn;
-        this.adultsIn = adultsIn;
-        this.childrenIn = childrenIn;
+
         this.name = name;
         this.address = address;
-        this.country = country;
+        this.country = "Costa Rica";
         this.phoneNumber = phoneNumber;
         this.buildingDate = buildingDate;
         this.hotelSize = hotelSize;
@@ -62,6 +67,12 @@ public class Hotel {
         this.checkOutHour = checkOutHour;
         this.lodgingType = lodgingType;
         this.stars = stars;
+        
+        this.allIn = true;
+        this.livingRoom = true;
+        this.seaView = true;
+        this.smokingArea = true;
+        this.terrace = true;
         
         this.attractionsList = new ArrayList<>();
         this.picturesList = new ArrayList<>();
@@ -88,22 +99,6 @@ public class Hotel {
         this.roomsIn = roomsIn;
     }
 
-    public int getAdultsIn() {
-        return adultsIn;
-    }
-
-    public void setAdultsIn(int adultsIn) {
-        this.adultsIn = adultsIn;
-    }
-
-    public int getChildrenIn() {
-        return childrenIn;
-    }
-
-    public void setChildrenIn(int childrenIn) {
-        this.childrenIn = childrenIn;
-    }
-
     public String getName() {
         return name;
     }
@@ -121,12 +116,9 @@ public class Hotel {
     }
 
     public String getCountry() {
-        return country;
+        return this.country;
     }
 
-    public void setCountry(String country) {
-        this.country = country;
-    }
 
     public int getPhoneNumber() {
         return phoneNumber;
@@ -183,6 +175,27 @@ public class Hotel {
     public void setStars(int stars) {
         this.stars = stars;
     }
+
+    //boolean information
+    public boolean isLivingRoom() {
+        return this.livingRoom;
+    }
+
+    public boolean isTerrace() {
+        return this.terrace;
+    }
+
+    public boolean isSeaView() {
+        return this.seaView;
+    }
+
+    public boolean isAllIn() {
+        return this.allIn;
+    }
+
+    public boolean isSmokingArea() {
+        return this.smokingArea;
+    }
     
     //all Hotel's lists
     public ArrayList<Attractions> getAttractionsList() {
@@ -215,8 +228,7 @@ public class Hotel {
 
     @Override
     public String toString() {
-        return "Hotel{" + "hotelDescription=" + hotelDescription + ", roomsIn=" + roomsIn + ", adultsIn=" + adultsIn + ", childrenIn=" + childrenIn + ", name=" + name + ", address=" + address + ", country=" + country + ", phoneNumber=" + phoneNumber + ", buildingDate=" + buildingDate + ", hotelSize=" + hotelSize + ", checkInHour=" + checkInHour + ", checkOutHour=" + checkOutHour + ", lodgingType=" + lodgingType + ", stars=" + stars + '}';
+        return "Hotel{" + "hotelDescription=" + hotelDescription + ", roomsIn=" + roomsIn + ", name=" + name + ", address=" + address + ", country=" + country + ", phoneNumber=" + phoneNumber + ", buildingDate=" + buildingDate + ", hotelSize=" + hotelSize + ", checkInHour=" + checkInHour + ", checkOutHour=" + checkOutHour + ", lodgingType=" + lodgingType + ", stars=" + stars + '}';
     }
     
-
 }

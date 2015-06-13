@@ -9,7 +9,6 @@ package hnhoteles.com;
 
 import factory.Room;
 import hotel.Hotel;
-import hotel.Price;
 import hotel.Reservation;
 import hotel.Season;
 import java.util.ArrayList;
@@ -38,13 +37,9 @@ public class Additional {
         hotel.getClientsList().add(new Client(partnerNumber, country, phoneNumber, coinType, name, lastName, gender, email, password));
     }  
     
-    public static void createHotel(String hotelDescription, int roomsIn, int adultsIn, int childrenIn, String name, String address, String country, int phoneNumber, int buildingDate, String hotelSize, String checkInHour, String checkOutHour, String lodgingType, int stars){
-        Additional.hotelList.add(new Hotel(hotelDescription,roomsIn,adultsIn, childrenIn, name,address,country, phoneNumber,buildingDate, hotelSize, checkInHour, checkOutHour,lodgingType,stars));
+    public static void createHotel(String hotelDescription, int roomsIn, String name, String address, int phoneNumber, int buildingDate, String hotelSize, String checkInHour, String checkOutHour, String lodgingType, int stars){
+        Additional.hotelList.add(new Hotel(hotelDescription,roomsIn, name,address, phoneNumber,buildingDate, hotelSize, checkInHour, checkOutHour,lodgingType,stars));
     }
-    public static void createRoom(int roomNumber, String roomType, String bedType, int peopleCapacity, String roomSize, String roomDescription, Price price){
-        
-    }
-    
     
     public static void setAvailability(Reservation reservation){
         
@@ -56,6 +51,9 @@ public class Additional {
         
     }
     public static void ifRoomNumberExist(Room room){
+        
+    }
+    public static void reservationCost(Reservation reservation){
         
     }
 }

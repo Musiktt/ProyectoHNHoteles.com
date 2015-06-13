@@ -25,11 +25,6 @@ public abstract class Room {
     
     //Indications if this has:
     private boolean availability;//only in case of reservation
-    private boolean livingRoom;
-    private boolean terrace;
-    private boolean seaView;
-    private boolean allIn;
-    private boolean smokingArea;
     
     private Price price;
 
@@ -44,12 +39,9 @@ public abstract class Room {
         this.roomSize = roomSize;
         this.roomDescription = roomDescription;
         this.price = price;
-        this.allIn = true;
+    
         this.availability = true;
-        this.livingRoom = true;
-        this.seaView = true;
-        this.smokingArea = true;
-        this.terrace = true;
+
     }
     
     //constructor to storage
@@ -116,24 +108,5 @@ public abstract class Room {
         return this.availability;
     }
 
-    public boolean isLivingRoom() {
-        return this.livingRoom;
-    }
-
-    public boolean isTerrace() {
-        return this.terrace;
-    }
-
-    public boolean isSeaView() {
-        return this.seaView;
-    }
-
-    public boolean isAllIn() {
-        return this.allIn;
-    }
-
-    public boolean isSmokingArea() {
-        return this.smokingArea;
-    }
     public abstract String getType();
 }

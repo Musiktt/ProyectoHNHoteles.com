@@ -33,8 +33,8 @@ public class Additional {
         hotel.getClientsList().add(new Client(partnerNumber, country, phoneNumber, coinType, name, lastName, gender, email, password));
     }  
     
-    public static void createHotel(String hotelDescription, String startDate, String endDate, int roomsIn, int adultsIn, int childrenIn, String name, String address, String country, int phoneNumber, int buildingDate, String hotelSize, String checkInHour, String checkOutHour, String lodgingType, int stars){
-        Additional.hotelList.add(new Hotel(hotelDescription,startDate,endDate,roomsIn,adultsIn, childrenIn, name,address,country, phoneNumber,buildingDate, hotelSize, checkInHour, checkOutHour,lodgingType,stars));
+    public static void createHotel(String hotelDescription, int roomsIn, int adultsIn, int childrenIn, String name, String address, String country, int phoneNumber, int buildingDate, String hotelSize, String checkInHour, String checkOutHour, String lodgingType, int stars){
+        Additional.hotelList.add(new Hotel(hotelDescription,roomsIn,adultsIn, childrenIn, name,address,country, phoneNumber,buildingDate, hotelSize, checkInHour, checkOutHour,lodgingType,stars));
     }
 
 }

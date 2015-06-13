@@ -14,5 +14,5 @@ import hotel.Season;
  * @author Stward
  */
 public interface RoomFactoryCreator {
-    public Room createRoom(int roomNumber, String bedType, int peopleCapacity, String roomSize, String roomDescription, Season season, Price price);
+    public Room createRoom(int roomNumber, String roomType,String bedType, int peopleCapacity, String roomSize, String roomDescription, Season season, Price price);
 }

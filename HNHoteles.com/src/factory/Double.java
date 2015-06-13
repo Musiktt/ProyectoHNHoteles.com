@@ -15,8 +15,8 @@ import hotel.Season;
  */
 public class Double extends Room{
 
-    public Double(int roomNumber, String bedType, int peopleCapacity, String roomSize, String roomDescription, Season season, Price price) {
-        super(roomNumber, bedType, peopleCapacity, roomSize, roomDescription, season, price);
+    public Double(int roomNumber, String roomType, String bedType, int peopleCapacity, String roomSize, String roomDescription, Season season, Price price) {
+        super(roomNumber, roomType,bedType, peopleCapacity, roomSize, roomDescription, season, price);
     }
 
     @Override

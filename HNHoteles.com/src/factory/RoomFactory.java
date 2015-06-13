@@ -16,18 +16,18 @@ import hotel.Season;
 public class RoomFactory implements RoomFactoryCreator{
     
     @Override
-    public Room createRoom(int roomNumber, String bedType, int peopleCapacity, String roomSize, String roomDescription, Season season, Price price) {
-        if(roomSize.equals("Individual")){
-            return new Individual(roomNumber, bedType, peopleCapacity, roomSize, roomDescription, season, price);
+    public Room createRoom(int roomNumber,String roomType,String bedType, int peopleCapacity, String roomSize, String roomDescription, Season season, Price price) {
+        if(roomType.equals("Individual")){
+            return new Individual(roomNumber, roomType,bedType, peopleCapacity, roomSize, roomDescription, season, price);
         }
-        else if(roomSize.equals("Double")){
-            return new Double(roomNumber, bedType, peopleCapacity, roomSize, roomDescription, season, price);
+        else if(roomType.equals("Double")){
+            return new Double(roomNumber, roomType,bedType, peopleCapacity, roomSize, roomDescription, season, price);
         }
-        else if(roomSize.equals("Family")){
-            return new Family(roomNumber, bedType, peopleCapacity, roomSize, roomDescription, season, price);
+        else if(roomType.equals("Family")){
+            return new Family(roomNumber, roomType,bedType, peopleCapacity, roomSize, roomDescription, season, price);
         }
-        else if(roomSize.equals("Suite")){
-            return new Suite(roomNumber, bedType, peopleCapacity, roomSize, roomDescription, season, price);
+        else if(roomType.equals("Suite")){
+            return new Suite(roomNumber, roomType,bedType, peopleCapacity, roomSize, roomDescription, season, price);
         }
         return null;
     }

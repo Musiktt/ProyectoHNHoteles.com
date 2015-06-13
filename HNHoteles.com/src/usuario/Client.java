@@ -105,8 +105,8 @@ public class Client extends User{
     }
     
     //creates a reservation
-    public void createReservation(String start, String end, String roomType, double total, Client personInCharge, int childrenIn, int adultsIn, Hotel hotel){
-        Reservation reservation = new Reservation(start,end,roomType,total,personInCharge,childrenIn,adultsIn, hotel);
+    public void createReservation(String startDate, String endDate, String roomType, double total, Client personInCharge, int childrenIn, int adultsIn, Hotel hotel){
+        Reservation reservation = new Reservation(startDate,endDate,roomType,total,personInCharge,childrenIn,adultsIn, hotel);
         this.pendingReservations.add(reservation);
     }
     //verifies if a reservation exist in the system

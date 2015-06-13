@@ -15,8 +15,8 @@ import hotel.Season;
  */
 public class Family extends Room{
 
-    public Family(int roomNumber, String bedType, int peopleCapacity, String roomSize, String roomDescription, Season season, Price price) {
-        super(roomNumber, bedType, peopleCapacity, roomSize, roomDescription, season, price);
+    public Family(int roomNumber,String roomType, String bedType, int peopleCapacity, String roomSize, String roomDescription, Season season, Price price) {
+        super(roomNumber, roomType,bedType, peopleCapacity, roomSize, roomDescription, season, price);
     }
 
     @Override

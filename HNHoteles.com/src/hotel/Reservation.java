@@ -17,8 +17,8 @@ import usuario.Client;
  */
 public class Reservation {
     private ArrayList<Room> rooms;
-    private String start;
-    private String end;
+    private String startDate;
+    private String endDate;
     private String roomType;
     private double total;
     private Client personInCharge;
@@ -29,9 +29,9 @@ public class Reservation {
     public Reservation() {
     }
 
-    public Reservation(String start, String end, String roomType, double total, Client personInCharge, int childrenIn, int adultsIn, Hotel hotel) {
-        this.start = start;
-        this.end = end;
+    public Reservation(String startDate, String endDate, String roomType, double total, Client personInCharge, int childrenIn, int adultsIn, Hotel hotel) {
+        this.startDate = startDate;
+        this.endDate = endDate;
         this.roomType = roomType;
         this.total = total;
         this.personInCharge = personInCharge;
@@ -41,20 +41,20 @@ public class Reservation {
         this.rooms=new ArrayList<>();
     }
 
-    public String getStart() {
-        return start;
+    public String getStartDate() {
+        return startDate;
     }
 
-    public void setStart(String start) {
-        this.start = start;
+    public void setStartDate(String startDate) {
+        this.startDate = startDate;
     }
 
-    public String getEnd() {
-        return end;
+    public String getEndDate() {
+        return endDate;
     }
 
-    public void setEnd(String end) {
-        this.end = end;
+    public void setEndDate(String endDate) {
+        this.endDate = endDate;
     }
 
     public String getRoomType() {
@@ -111,7 +111,7 @@ public class Reservation {
 
     @Override
     public String toString() {
-        return "Reservation{" + "rooms=" + rooms + ", entrance=" + start + ", exit=" + end + ", roomType=" + roomType + ", total=" + total + ", personInCharge=" + personInCharge + ", childrenIn=" + childrenIn + ", adultsIn=" + adultsIn + ", hotel=" + hotel + '}';
+        return "Reservation{" + "startDate=" + startDate + ", endDate=" + endDate + ", roomType=" + roomType + ", total=" + total + ", personInCharge=" + personInCharge + ", childrenIn=" + childrenIn + ", adultsIn=" + adultsIn + ", hotel=" + hotel + '}';
     }
     
 }

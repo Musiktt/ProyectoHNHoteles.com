@@ -18,8 +18,6 @@ import usuario.Client;
 public class Hotel {
     //hotel searching
     private String hotelDescription;
-    private String startDate;
-    private String endDate;
     private int roomsIn;
     private int adultsIn;
     private int childrenIn;
@@ -49,10 +47,8 @@ public class Hotel {
     public Hotel() {
     }
 
-    public Hotel(String hotelDescription, String startDate, String endDate, int roomsIn, int adultsIn, int childrenIn, String name, String address, String country, int phoneNumber, int buildingDate, String hotelSize, String checkInHour, String checkOutHour, String lodgingType, int stars) {
+    public Hotel(String hotelDescription, int roomsIn, int adultsIn, int childrenIn, String name, String address, String country, int phoneNumber, int buildingDate, String hotelSize, String checkInHour, String checkOutHour, String lodgingType, int stars) {
         this.hotelDescription = hotelDescription;
-        this.startDate = startDate;
-        this.endDate = endDate;
         this.roomsIn = roomsIn;
         this.adultsIn = adultsIn;
         this.childrenIn = childrenIn;
@@ -83,23 +79,7 @@ public class Hotel {
     public void setHotelDescription(String hotelDescription) {
         this.hotelDescription = hotelDescription;
     }
-
-    public String getStartDate() {
-        return startDate;
-    }
-
-    public void setStartDate(String startDate) {
-        this.startDate = startDate;
-    }
-
-    public String getEndDate() {
-        return endDate;
-    }
-
-    public void setEndDate(String endDate) {
-        this.endDate = endDate;
-    }
-
+    
     public int getRoomsIn() {
         return roomsIn;
     }
@@ -235,7 +215,8 @@ public class Hotel {
 
     @Override
     public String toString() {
-        return "Hotel{" + "hotelDescription=" + hotelDescription + ", startDate=" + startDate + ", endDate=" + endDate + ", roomsIn=" + roomsIn + ", adultsIn=" + adultsIn + ", childrenIn=" + childrenIn + ", name=" + name + ", address=" + address + ", country=" + country + ", phoneNumber=" + phoneNumber + ", buildingDate=" + buildingDate + ", hotelSize=" + hotelSize + ", checkInHour=" + checkInHour + ", checkOutHour=" + checkOutHour + ", lodgingType=" + lodgingType + ", stars=" + stars + '}';
+        return "Hotel{" + "hotelDescription=" + hotelDescription + ", roomsIn=" + roomsIn + ", adultsIn=" + adultsIn + ", childrenIn=" + childrenIn + ", name=" + name + ", address=" + address + ", country=" + country + ", phoneNumber=" + phoneNumber + ", buildingDate=" + buildingDate + ", hotelSize=" + hotelSize + ", checkInHour=" + checkInHour + ", checkOutHour=" + checkOutHour + ", lodgingType=" + lodgingType + ", stars=" + stars + '}';
     }
     
+
 }

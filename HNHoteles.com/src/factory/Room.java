@@ -15,6 +15,7 @@ import hotel.Season;
  */
 public abstract class Room {
     private int roomNumber;
+    private String roomType;
     
     //Storage information
     private boolean availability;
@@ -36,8 +37,9 @@ public abstract class Room {
     public Room() {
     }
 
-    public Room(int roomNumber, String bedType, int peopleCapacity, String roomSize, String roomDescription, Season season, Price price) {
+    public Room(int roomNumber, String roomType, String bedType, int peopleCapacity, String roomSize, String roomDescription, Season season, Price price) {
         this.roomNumber = roomNumber;
+        this.roomType = roomType;
         this.bedType = bedType;
         this.peopleCapacity = peopleCapacity;
         this.roomSize = roomSize;
@@ -63,6 +65,14 @@ public abstract class Room {
         this.roomNumber = roomNumber;
     }
 
+    public String getRoomType() {
+        return roomType;
+    }
+
+    public void setRoomType(String roomType) {
+        this.roomType = roomType;
+    }
+    
     public String getBedType() {
         return bedType;
     }

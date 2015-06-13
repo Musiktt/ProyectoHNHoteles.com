@@ -7,7 +7,6 @@
 package factory;
 
 import hotel.Price;
-import hotel.Season;
 
 /**
  *
@@ -18,40 +17,39 @@ public abstract class Room {
     private String roomType;
     
     //Storage information
-    private boolean availability;
+    
     private String bedType;
     private int peopleCapacity;
     private String roomSize;
     private String roomDescription;
     
     //Indications if this has:
+    private boolean availability;//only in case of reservation
     private boolean livingRoom;
     private boolean terrace;
     private boolean seaView;
     private boolean allIn;
     private boolean smokingArea;
     
-    private Season season;
     private Price price;
 
     public Room() {
     }
 
-    public Room(int roomNumber, String roomType, String bedType, int peopleCapacity, String roomSize, String roomDescription, Season season, Price price) {
+    public Room(int roomNumber, String roomType, String bedType, int peopleCapacity, String roomSize, String roomDescription, Price price) {
         this.roomNumber = roomNumber;
         this.roomType = roomType;
         this.bedType = bedType;
         this.peopleCapacity = peopleCapacity;
         this.roomSize = roomSize;
         this.roomDescription = roomDescription;
-        this.season = season;
         this.price = price;
-        this.allIn = false;
-        this.availability = false;
-        this.livingRoom = false;
-        this.seaView = false;
-        this.smokingArea = false;
-        this.terrace = false;
+        this.allIn = true;
+        this.availability = true;
+        this.livingRoom = true;
+        this.seaView = true;
+        this.smokingArea = true;
+        this.terrace = true;
     }
     
     //constructor to storage
@@ -105,14 +103,6 @@ public abstract class Room {
         this.roomDescription = roomDescription;
     }
 
-    public Season getSeason() {
-        return season;
-    }
-
-    public void setSeason(Season season) {
-        this.season = season;
-    }
-
     public Price getPrice() {
         return price;
     }
@@ -120,6 +110,7 @@ public abstract class Room {
     public void setPrice(Price price) {
         this.price = price;
     }
+    
     //Room's boolean information
     public boolean isAvailability() {
         return this.availability;

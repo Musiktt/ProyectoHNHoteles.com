@@ -7,7 +7,7 @@
 package factory;
 
 import hotel.Price;
-import hotel.Season;
+
 
 /**
  *
@@ -16,18 +16,18 @@ import hotel.Season;
 public class RoomFactory implements RoomFactoryCreator{
     
     @Override
-    public Room createRoom(int roomNumber,String roomType,String bedType, int peopleCapacity, String roomSize, String roomDescription, Season season, Price price) {
+    public Room createRoom(int roomNumber,String roomType,String bedType, int peopleCapacity, String roomSize, String roomDescription, Price price) {
         if(roomType.equals("Individual")){
-            return new Individual(roomNumber, roomType,bedType, peopleCapacity, roomSize, roomDescription, season, price);
+            return new Individual(roomNumber, roomType,bedType, peopleCapacity, roomSize, roomDescription, price);
         }
         else if(roomType.equals("Double")){
-            return new Double(roomNumber, roomType,bedType, peopleCapacity, roomSize, roomDescription, season, price);
+            return new Double(roomNumber, roomType,bedType, peopleCapacity, roomSize, roomDescription, price);
         }
         else if(roomType.equals("Family")){
-            return new Family(roomNumber, roomType,bedType, peopleCapacity, roomSize, roomDescription, season, price);
+            return new Family(roomNumber, roomType,bedType, peopleCapacity, roomSize, roomDescription, price);
         }
         else if(roomType.equals("Suite")){
-            return new Suite(roomNumber, roomType,bedType, peopleCapacity, roomSize, roomDescription, season, price);
+            return new Suite(roomNumber, roomType,bedType, peopleCapacity, roomSize, roomDescription, price);
         }
         return null;
     }

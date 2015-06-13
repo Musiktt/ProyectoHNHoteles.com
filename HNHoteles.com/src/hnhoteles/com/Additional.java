@@ -6,8 +6,12 @@
 
 package hnhoteles.com;
 
+
+import factory.Room;
 import hotel.Hotel;
+import hotel.Price;
 import hotel.Reservation;
+import hotel.Season;
 import java.util.ArrayList;
 import usuario.Administrator;
 import usuario.Client;
@@ -22,6 +26,7 @@ public class Additional {
     public static ArrayList<Reservation> cancelledReservations;
     public static ArrayList<Reservation> completedReservations;
     public static ArrayList<Reservation> reservationsHistory;
+    public static ArrayList<Season> seasonsList;
 
     
     
@@ -29,12 +34,28 @@ public class Additional {
         hotel.getAdministratorList().add(new Administrator(phoneNumber, country, name, lastName, gender, email, password));
     }
         
-    public static void createClient(Hotel hotel, int partnerNumber, String country, int phoneNumber, int coinType, String name, String lastName, String gender, String email, String password){
+    public static void createClient(Hotel hotel,int partnerNumber, String country, int phoneNumber, int coinType, String name, String lastName, String gender, String email, String password){
         hotel.getClientsList().add(new Client(partnerNumber, country, phoneNumber, coinType, name, lastName, gender, email, password));
     }  
     
     public static void createHotel(String hotelDescription, int roomsIn, int adultsIn, int childrenIn, String name, String address, String country, int phoneNumber, int buildingDate, String hotelSize, String checkInHour, String checkOutHour, String lodgingType, int stars){
         Additional.hotelList.add(new Hotel(hotelDescription,roomsIn,adultsIn, childrenIn, name,address,country, phoneNumber,buildingDate, hotelSize, checkInHour, checkOutHour,lodgingType,stars));
     }
-
+    public static void createRoom(int roomNumber, String roomType, String bedType, int peopleCapacity, String roomSize, String roomDescription, Price price){
+        
+    }
+    
+    
+    public static void setAvailability(Reservation reservation){
+        
+    }
+    public static void addRoomsToHotel(Hotel hotel, Room room){
+        
+    }
+    public static void createSeason(Season season){
+        
+    }
+    public static void ifRoomNumberExist(Room room){
+        
+    }
 }

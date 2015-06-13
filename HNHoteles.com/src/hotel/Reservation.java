@@ -16,7 +16,7 @@ import usuario.Client;
  * @author Stward
  */
 public class Reservation {
-    private ArrayList<Room> rooms;
+    private ArrayList<Integer> rooms;
     private String startDate;
     private String endDate;
     private String roomType;
@@ -105,7 +105,7 @@ public class Reservation {
         this.hotel = hotel;
     }
 
-    public ArrayList<Room> getRooms() {
+    public ArrayList<Integer> getRooms() {
         return this.rooms;
     }
 

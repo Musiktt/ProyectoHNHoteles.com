@@ -11,19 +11,21 @@ package hotel;
  * @author Stward
  */
 public class Season{
+    private String name;
     private String code;
     private String startDate;
     private String endDate;
-    private String name; 
+     
     
     public Season() {
     }
 
-    public Season(String code, String startDate, String endDate, String name) {
+    public Season(String name, String code, String startDate, String endDate) {
+        this.name = name; 
         this.code = code;
         this.startDate = startDate;
         this.endDate = endDate;
-        this.name = name;
+        
     }
 
     public String getCode() {

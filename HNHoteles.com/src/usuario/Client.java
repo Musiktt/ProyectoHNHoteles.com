@@ -39,16 +39,17 @@ public class Client extends User{
         this.completedReservations = new ArrayList<>();
         this.pendingReservations = new ArrayList<>();
     }
-    
+
     public int getPartnerNumber() {
-        int number = new Random().nextInt(1000000);
-        return number;
+        return partnerNumber;
     }
 
     public void setPartnerNumber(int partnerNumber) {
         
+         partnerNumber = new Random().nextInt(2000000);
+        
         if(Additional.partnerNumberList.isEmpty()){
-            this.partnerNumber = this.getPartnerNumber();
+            this.partnerNumber = partnerNumber;
             Additional.partnerNumberList.add(this.partnerNumber);
         }
         else if(!Additional.partnerNumberList.isEmpty()){
@@ -56,7 +57,7 @@ public class Client extends User{
                 if (this.partnerNumber == Additional.partnerNumberList.get(i))
                     return;
                 else {
-                    this.partnerNumber = this.getPartnerNumber();
+                    this.partnerNumber = partnerNumber;
                     Additional.partnerNumberList.add(this.partnerNumber);
                 }
             }
@@ -106,8 +107,7 @@ public class Client extends User{
     
     //creates a reservation
     public void createReservation(String startDate, String endDate, String roomType, double total, Client personInCharge, int childrenIn, int adultsIn, Hotel hotel){
-        Reservation reservation = new Reservation(startDate,endDate,roomType,total,personInCharge,childrenIn,adultsIn, hotel);
-        this.pendingReservations.add(reservation);
+        
     }
     //verifies if a reservation exist in the system
     public boolean ifReservationExist(Reservation reservation){
@@ -119,7 +119,7 @@ public class Client extends User{
         return false;
     }
         
-    public void completeReservation(Client client, Reservation reservation){
+    public void completeReservation(Reservation reservation){
         
         if(ifReservationExist(reservation) != false){
             this.pendingReservations.remove(reservation);

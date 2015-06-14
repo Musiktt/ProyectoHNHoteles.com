@@ -8,8 +8,8 @@ package hotel;
 
 import factory.Room;
 import java.util.ArrayList;
-import usuario.Administrator;
-import usuario.Client;
+import user.Administrator;
+import user.Client;
 
 /**
  *
@@ -42,13 +42,14 @@ public class Hotel {
      private boolean smokingArea;
     
     //lists
-    private ArrayList<Attractions> attractionsList;
+    private ArrayList<Attraction> attractionsList;
     private ArrayList<String> picturesList;
     private ArrayList<Room> roomsList;
     private ArrayList<Service> servicesList;
     private ArrayList<Reservation> reservationsList;
     private ArrayList<Client> clientsList;
-    private  ArrayList<Administrator> administratorList;
+    private ArrayList<Administrator> administratorList;
+    
 
     public Hotel() {
     }
@@ -198,7 +199,7 @@ public class Hotel {
     }
     
     //all Hotel's lists
-    public ArrayList<Attractions> getAttractionsList() {
+    public ArrayList<Attraction> getAttractionsList() {
         return this.attractionsList;
     }
 

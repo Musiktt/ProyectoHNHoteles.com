@@ -10,14 +10,14 @@ package hotel;
  *
  * @author Stward
  */
-public class Attractions {
+public class Attraction {
     private String name;
     private String id;
 
-    public Attractions() {
+    public Attraction() {
     }
 
-    public Attractions(String name, String id) {
+    public Attraction(String name, String id) {
         this.name = name;
         this.id = id;
     }

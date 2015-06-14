@@ -9,7 +9,7 @@ package hotel;
 
 
 import java.util.ArrayList;
-import usuario.Client;
+import user.Client;
 
 /**
  *

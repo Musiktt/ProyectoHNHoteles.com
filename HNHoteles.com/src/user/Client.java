@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-package usuario;
+package user;
 
 import hnhoteles.com.Additional;
 import hotel.Hotel;

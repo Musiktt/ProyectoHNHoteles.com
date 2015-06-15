@@ -7,7 +7,6 @@
 package factory;
 
 import hotel.Price;
-import hotel.Season;
 
 /**
  *

@@ -7,10 +7,9 @@
 package user;
 
 import hnhoteles.com.Additional;
-import hotel.Hotel;
 import hotel.Reservation;
 import java.util.ArrayList;
-import java.util.Random;
+
 
 /**
  *
@@ -20,7 +19,7 @@ public class Client extends User{
     private int partnerNumber;
     private String country;
     private int phoneNumber;
-    private int coinType;//Moneda de predileccion
+    private String coinType;//Moneda de predileccion
     
     private ArrayList<Reservation> cancelledReservations;
     private ArrayList<Reservation> pendingReservations;
@@ -29,7 +28,7 @@ public class Client extends User{
     public Client() {
     }
 
-    public Client(int partnerNumber, String country, int phoneNumber, int coinType, String name, String lastName, String gender, String email, String password) {
+    public Client(int partnerNumber, String country, int phoneNumber, String coinType, String name, String lastName, String gender, String email, String password) {
         super(name, lastName, gender, email, password);
         this.partnerNumber = partnerNumber;
         this.country = country;
@@ -45,23 +44,7 @@ public class Client extends User{
     }
 
     public void setPartnerNumber(int partnerNumber) {
-        
-         partnerNumber = new Random().nextInt(2000000);
-        
-        if(Additional.partnerNumberList.isEmpty()){
-            this.partnerNumber = partnerNumber;
-            Additional.partnerNumberList.add(this.partnerNumber);
-        }
-        else if(!Additional.partnerNumberList.isEmpty()){
-            for(int i=0;i < Additional.partnerNumberList.size();i++){
-                if (this.partnerNumber == Additional.partnerNumberList.get(i))
-                    return;
-                else {
-                    this.partnerNumber = partnerNumber;
-                    Additional.partnerNumberList.add(this.partnerNumber);
-                }
-            }
-        }
+        this.partnerNumber = partnerNumber;
     }
     
     public String getCountry() {
@@ -80,11 +63,11 @@ public class Client extends User{
         this.phoneNumber = phoneNumber;
     }
 
-    public int getCoinType() {
+    public String getCoinType() {
         return coinType;
     }
 
-    public void setCoinType(int coinType) {
+    public void setCoinType(String coinType) {
         this.coinType = coinType;
     }
 
@@ -105,10 +88,6 @@ public class Client extends User{
         return "Client{" + "partnerNumber=" + partnerNumber + ", country=" + country + ", phoneNumber=" + phoneNumber + ", coinType=" + coinType + ", cancelledReservations=" + cancelledReservations + ", pendingReservations=" + pendingReservations + ", completedReservations=" + completedReservations + '}';
     }
     
-    //creates a reservation
-    public void createReservation(String startDate, String endDate, String roomType, double total, Client personInCharge, int childrenIn, int adultsIn, Hotel hotel){
-        
-    }
     //verifies if a reservation exist in the system
     public boolean ifReservationExist(Reservation reservation){
         for(Reservation r : this.pendingReservations){

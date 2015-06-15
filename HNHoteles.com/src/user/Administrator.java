@@ -15,9 +15,6 @@ public class Administrator extends User{
     private int phoneNumber;
     private String country;
 
-    public Administrator() {
-    }
-
     public Administrator(int phoneNumber, String country, String name, String lastName, String gender, String email, String password) {
         super(name, lastName, gender, email, password);
         this.phoneNumber = phoneNumber;

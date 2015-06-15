@@ -7,6 +7,7 @@
 package hnhoteles.com;
 
 
+import exceptions.StringPhoneNumberException;
 import factory.Room;
 import hotel.Attraction;
 import hotel.Hotel;
@@ -14,6 +15,7 @@ import hotel.Reservation;
 import hotel.Season;
 import hotel.Service;
 import java.util.ArrayList;
+import java.util.Random;
 import user.Administrator;
 import user.Client;
 
@@ -23,25 +25,29 @@ import user.Client;
  * @author Stward
  */
 public class Additional {
-    public static ArrayList<Hotel> hotelList;
-    public static ArrayList<Room> roomsList;
-    public static ArrayList<Integer> partnerNumberList;
-    public static ArrayList<Reservation> cancelledReservations;
-    public static ArrayList<Reservation> completedReservations;
-    public static ArrayList<Reservation> reservationsHistory;
-    public static ArrayList<Season> seasonsList;
-    public static ArrayList<Attraction> attractionsList;
-    public static ArrayList<Client> clientsList;
-    public static ArrayList<Administrator> administratorsList;
-    public static ArrayList<Service> servicesList;
-    
+    public static ArrayList<Hotel> hotelList = new ArrayList();
+    public static ArrayList<Room> roomsList = new ArrayList();
+    public static ArrayList<Integer> partnerNumberList = new ArrayList();
+    public static ArrayList<Reservation> cancelledReservations= new ArrayList();;
+    public static ArrayList<Reservation> completedReservations= new ArrayList();;
+    public static ArrayList<Reservation> reservationsHistory= new ArrayList();;
+    public static ArrayList<Season> seasonsList = new ArrayList();
+    public static ArrayList<Attraction> attractionsList = new ArrayList();
+    public static ArrayList<Client> clientsList = new ArrayList();
+    public static ArrayList<Administrator> administratorsList = new ArrayList(); 
+    public static ArrayList<Service> servicesList = new ArrayList();
 
-    
+   
+    public Additional() {
+    }
+
+
     //Create new objects
     public static void createAdministrator(int phoneNumber, String country, String name, String lastName, String gender, String email, String password){
         Additional.administratorsList.add(new Administrator(phoneNumber, country, name, lastName, gender, email, password));
+        
     }
-    public static void createClient(int partnerNumber, String country, int phoneNumber, int coinType, String name, String lastName, String gender, String email, String password){
+    public static void createClient(int partnerNumber, String country, int phoneNumber, String coinType, String name, String lastName, String gender, String email, String password){
         Additional.clientsList.add(new Client(partnerNumber, country, phoneNumber, coinType, name, lastName, gender, email, password));
     }  
     public static void createHotel(String hotelDescription, int roomsIn, String name, String address, int phoneNumber, int buildingDate, String hotelSize, String checkInHour, String checkOutHour, String lodgingType, int stars){
@@ -59,7 +65,8 @@ public class Additional {
     //login methods
     public static Administrator loginAdministrator(String email, String password){
         for(Administrator administrator : Additional.administratorsList){
-            if(administrator.getEmail().equals(email) && administrator.getPassword().equals(password)){
+            String decrypted = Additional.decryptPassword(administrator.getPassword());
+            if(administrator.getEmail().equals(email) && decrypted.equals(password)){
                 return administrator;
             }
         }
@@ -67,7 +74,8 @@ public class Additional {
     }
     public static Client loginClient(String email, String password){
         for(Client client : Additional.clientsList){
-            if(client.getEmail().equals(email) && client.getPassword().equals(password)){
+            String decrypted = Additional.decryptPassword(client.getPassword());
+            if(client.getEmail().equals(email) && decrypted.equals(password)){
                 return client;
             }
         }
@@ -78,6 +86,16 @@ public class Additional {
         if(Additional.clientsList.size() > 0) {
             for(Client client : Additional.clientsList){
                 if(client.getEmail().equals(email)){
+                    return client;
+                }
+            }
+        }
+        return null;
+    } 
+    public static Client findClient(int phoneNumber){
+        if(Additional.clientsList.size() > 0) {
+            for(Client client : Additional.clientsList){
+                if(client.getPhoneNumber()== phoneNumber){
                     return client;
                 }
             }
@@ -94,6 +112,61 @@ public class Additional {
         }
         return null;
     }
+        public static Administrator findAdministrator(int phoneNumber){
+        if(Additional.administratorsList.size() > 0) {
+            for(Administrator administrator : Additional.administratorsList){
+                if(administrator.getPhoneNumber() == phoneNumber){
+                    return administrator;
+                }
+            }
+        }
+        return null;
+    }
+    //Exception methods in order to show the exception's message
+    public static boolean phoneNumberExceptionLower(String phoneNumber){
+        String numbers = "abcdefghyjklmnñopqrstuvwxyz";
+        for (int i = 0; i < phoneNumber.length(); i++) {
+            if (numbers.indexOf(phoneNumber.charAt(i), 0) != -1) {
+                return true;
+            }
+        }
+        return false;
+    }
+    public static boolean phoneNumberExceptionUpper(String phoneNumber){
+        String numbers = "ABCDEFGHYJKLMNÑOPQRSTUVWXYZ";
+        for (int i = 0; i < phoneNumber.length(); i++) {
+            if (numbers.indexOf(phoneNumber.charAt(i), 0) != -1) {
+                return true;
+            }
+        }
+        return false;
+    }
+    //Method in order to verify if the password has the required number
+    public static boolean hasNumbers(String password) {
+        String numbers = "0123456789";
+        for (int i = 0; i < password.length(); i++) {
+            if (numbers.indexOf(password.charAt(i), 0) != -1) {
+                return true;
+            }
+        }
+        return false;
+    }
+    //Shows the exception created
+    public static void showExceptionMessage(){
+        StringPhoneNumberException exceptionReact = new StringPhoneNumberException("Letter(s) in phone number blank");
+        System.err.println(exceptionReact);
+    }
+    //Method in order to validate the password 
+    public static boolean validatePassword(String password){
+        if(password.length() < 6 || password.length() > 20){
+            return false;
+        }        
+        else if(!Additional.hasNumbers(password)){
+            return false;
+        }
+        return true;
+    }
+    
     public static void setAvailability(Reservation reservation){
         
     }
@@ -105,5 +178,39 @@ public class Additional {
     }
     public static void reservationCost(Reservation reservation){
         
+    }
+    
+    //This method gives a random partner number
+    public static int randomPartnerNumber(){
+        int partnerNumber = new Random().nextInt(2000000);
+        
+        if(Additional.partnerNumberList.isEmpty()){
+            Additional.partnerNumberList.add(partnerNumber);
+            return partnerNumber;
+        }
+        else {
+                if (Additional.partnerNumberList.contains(partnerNumber)){
+                    return 0;
+                }
+  
+                else {
+                    Additional.partnerNumberList.add(partnerNumber);
+                    return partnerNumber;
+                }
+            
+        }
+    }
+    
+    //Methods in order to encrypt and decrypt any password
+    public static String encryptPassword(String password){
+        PasswordEncrypter p = new PasswordEncrypter("");
+        String pass = p.encrypt(password);
+        return pass;
+    }
+    
+    public static String decryptPassword(String password){
+        PasswordEncrypter p = new PasswordEncrypter("");
+        String pass = p.decrypt(password);
+        return pass;
     }
 }

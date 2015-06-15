@@ -6,8 +6,9 @@
 
 package GUI;
 
+import exceptions.StringPhoneNumberException;
 import hnhoteles.com.Additional;
-import hnhoteles.com.PasswordEncrypter;
+import java.util.Random;
 import javax.swing.JOptionPane;
 import user.Administrator;
 import user.Client;
@@ -37,10 +38,10 @@ public class Login extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         emailText = new javax.swing.JTextField();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
-        jPasswordField1 = new javax.swing.JPasswordField();
+        createUserButton = new javax.swing.JButton();
+        loginButton = new javax.swing.JButton();
+        createHotelButton = new javax.swing.JButton();
+        passwordFieldLogin = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -48,21 +49,21 @@ public class Login extends javax.swing.JFrame {
 
         jLabel3.setText("Password");
 
-        jButton3.setText("Create User");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        createUserButton.setText("Create User");
+        createUserButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                createUserButtonActionPerformed(evt);
             }
         });
 
-        jButton4.setText("Login");
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
+        loginButton.setText("Login");
+        loginButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
+                loginButtonActionPerformed(evt);
             }
         });
 
-        jButton1.setText("Create Hotel");
+        createHotelButton.setText("Create Hotel");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -71,12 +72,12 @@ public class Login extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton4)
+                    .addComponent(loginButton)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(16, 16, 16)
-                        .addComponent(jButton3)
+                        .addComponent(createUserButton)
                         .addGap(18, 18, 18)
-                        .addComponent(jButton1))
+                        .addComponent(createHotelButton))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel1)
@@ -84,7 +85,7 @@ public class Login extends javax.swing.JFrame {
                         .addGap(40, 40, 40)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(emailText, javax.swing.GroupLayout.DEFAULT_SIZE, 141, Short.MAX_VALUE)
-                            .addComponent(jPasswordField1))))
+                            .addComponent(passwordFieldLogin))))
                 .addContainerGap(389, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -97,34 +98,35 @@ public class Login extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(passwordFieldLogin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(jButton4)
+                .addComponent(loginButton)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 41, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton3)
-                    .addComponent(jButton1))
+                    .addComponent(createUserButton)
+                    .addComponent(createHotelButton))
                 .addGap(24, 24, 24))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+    private void loginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginButtonActionPerformed
         
         String email = emailText.getText();
-        //String password = JtextContrasenia.getText();
-        
+        String password = passwordFieldLogin.getText();
+
         if(Additional.findAdministrator(email) != null){
-            Administrator administrator = Additional.loginAdministrator(email, email);
-            if (administrator != null){
-                new AdministratorView(administrator).setVisible(true);
+            
+            Administrator admin = Additional.loginAdministrator(email, password);
+            if (admin != null){
+                new AdministratorView(admin).setVisible(true);
                 this.dispose();
                 
             }
         }
         else if(Additional.findClient(email) != null){
-            Client client = Additional.loginClient(email, email);
+            Client client = Additional.loginClient(email, password);
             if (client != null){
                 new ClientView(client).setVisible(true);
                 this.dispose();
@@ -133,13 +135,11 @@ public class Login extends javax.swing.JFrame {
         else{
             JOptionPane.showMessageDialog(this, "User doesn't exist");
         }
-    }//GEN-LAST:event_jButton4ActionPerformed
+    }//GEN-LAST:event_loginButtonActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-          PasswordEncrypter ep = new PasswordEncrypter("23523262");
-          String ep2 = ep.encrypt("12345");
-          System.out.println(ep2);
-    }//GEN-LAST:event_jButton3ActionPerformed
+    private void createUserButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createUserButtonActionPerformed
+
+    }//GEN-LAST:event_createUserButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -177,12 +177,12 @@ public class Login extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton createHotelButton;
+    private javax.swing.JButton createUserButton;
     private javax.swing.JTextField emailText;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JPasswordField jPasswordField1;
+    private javax.swing.JButton loginButton;
+    private javax.swing.JPasswordField passwordFieldLogin;
     // End of variables declaration//GEN-END:variables
 }

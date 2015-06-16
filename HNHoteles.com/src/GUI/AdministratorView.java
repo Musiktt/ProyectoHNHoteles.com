@@ -65,10 +65,6 @@ public class AdministratorView extends javax.swing.JFrame {
         descriptionArea = new javax.swing.JTextArea();
         hotelsBox = new javax.swing.JComboBox();
         refreshButton = new javax.swing.JButton();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        sizeBox = new javax.swing.JComboBox();
-        capacityText = new javax.swing.JTextField();
         jPanel5 = new javax.swing.JPanel();
         jLabel23 = new javax.swing.JLabel();
         jLabel24 = new javax.swing.JLabel();
@@ -86,6 +82,8 @@ public class AdministratorView extends javax.swing.JFrame {
         hotelsBox3 = new javax.swing.JComboBox();
         refreshButton3 = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
+        jPanel6 = new javax.swing.JPanel();
+        exitButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -214,12 +212,6 @@ public class AdministratorView extends javax.swing.JFrame {
             }
         });
 
-        jLabel4.setText("Room Size");
-
-        jLabel6.setText("People Capacity");
-
-        sizeBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Small", "Medium", "Big" }));
-
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -240,18 +232,9 @@ public class AdministratorView extends javax.swing.JFrame {
                                     .addComponent(jLabel13))
                                 .addGap(28, 28, 28)
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel2Layout.createSequentialGroup()
-                                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addComponent(roomTypeBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(roomNumberText))
-                                        .addGap(81, 81, 81)
-                                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jLabel4)
-                                            .addComponent(jLabel6))
-                                        .addGap(23, 23, 23)
-                                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(capacityText, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(sizeBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(roomTypeBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(roomNumberText))
                                     .addComponent(bedTypeBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(priceText, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(jPanel2Layout.createSequentialGroup()
@@ -268,19 +251,14 @@ public class AdministratorView extends javax.swing.JFrame {
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(18, 18, 18)
+                .addGap(21, 21, 21)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(roomNumberText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel4)
-                    .addComponent(sizeBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(roomNumberText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel2)
-                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(roomTypeBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel6)
-                        .addComponent(capacityText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(roomTypeBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(28, 28, 28)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
@@ -300,7 +278,7 @@ public class AdministratorView extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(createRoomButton))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(14, Short.MAX_VALUE))
         );
 
         jTabbedPane2.addTab("Rooms", jPanel2);
@@ -443,6 +421,32 @@ public class AdministratorView extends javax.swing.JFrame {
 
         jTabbedPane2.addTab("Search", jPanel1);
 
+        exitButton.setText("EXIT");
+        exitButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                exitButtonActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
+        jPanel6.setLayout(jPanel6Layout);
+        jPanel6Layout.setHorizontalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel6Layout.createSequentialGroup()
+                .addGap(329, 329, 329)
+                .addComponent(exitButton)
+                .addContainerGap(391, Short.MAX_VALUE))
+        );
+        jPanel6Layout.setVerticalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel6Layout.createSequentialGroup()
+                .addGap(147, 147, 147)
+                .addComponent(exitButton)
+                .addContainerGap(146, Short.MAX_VALUE))
+        );
+
+        jTabbedPane2.addTab("EXIT", jPanel6);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -467,30 +471,49 @@ public class AdministratorView extends javax.swing.JFrame {
         
         String description = descriptionArea.getText();
         String hotel = (String) hotelsBox.getSelectedItem();
-        String size = (String) sizeBox.getSelectedItem();
         
-        if(!roomNumberText.getText().equals("") && !priceText.getText().equals("") && !description.equals("") && !capacityText.equals("")){
+        if(!roomNumberText.getText().equals("") && !priceText.getText().equals("") && !description.equals("")){
             
-            int capacity = Integer.parseInt(capacityText.getText());
             int roomNumber = Integer.parseInt(roomNumberText.getText());
             price.setAmount(Integer.parseInt(priceText.getText()));
             
             if(Additional.findHotel(hotel) != null){
                 if( Additional.findRoom(Additional.findHotel(hotel),roomNumber) == null){
                     if(roomNumber <= Additional.findHotel(hotel).getRoomsIn()){
-                
-                        Additional.createRoom(hotel,roomNumber, roomType, bedType, capacity, size, description, true, price);
-                        roomNumberText.setText("");
-                        priceText.setText("");
-                        descriptionArea.setText("");
-                        capacityText.setText("");
+                        if(roomType.equals("Individual")){
+                            Additional.createRoom(hotel,roomNumber, roomType, bedType, 2, "Small", description, true, price);
+                            roomNumberText.setText("");
+                            priceText.setText("");
+                            descriptionArea.setText("");
+                        }
+                        else if(roomType.equals("Double")){
+                            
+                            Additional.createRoom(hotel,roomNumber, roomType, bedType, 6, "Medium", description, true, price);
+                            roomNumberText.setText("");
+                            priceText.setText("");
+                            descriptionArea.setText("");
+                        }
+                        else if(roomType.equals("Family")){
+                            
+                            Additional.createRoom(hotel,roomNumber, roomType, bedType, 8, "Big", description, true, price);
+                            roomNumberText.setText("");
+                            priceText.setText("");
+                            descriptionArea.setText("");
+                        }
+                        else if(roomType.equals("Suite")){
+                            
+                            Additional.createRoom(hotel,roomNumber, roomType, bedType, 2, "Big", description, true, price);
+                            roomNumberText.setText("");
+                            priceText.setText("");
+                            descriptionArea.setText("");
+                        }
                     }
                     else{
                         JOptionPane.showMessageDialog(this, "Room number is out of range");
                         roomNumberText.setText("");
                         priceText.setText("");
                         descriptionArea.setText("");
-                        capacityText.setText("");                       
+                       
                     }
                 }
                 else{
@@ -667,10 +690,15 @@ public class AdministratorView extends javax.swing.JFrame {
             hotelsBox4.removeAllItems();
             for(int i=0; i < Additional.hotelList.size();i++){
                 hotelsBox4.addItem(Additional.hotelList.get(i).getName());
-           
+       
             }   
         }
     }//GEN-LAST:event_refreshButton4ActionPerformed
+
+    private void exitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitButtonActionPerformed
+        new Login().setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_exitButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -711,13 +739,13 @@ public class AdministratorView extends javax.swing.JFrame {
     private javax.swing.JTextField attractIDText;
     private javax.swing.JTextField attractNameText;
     private javax.swing.JComboBox bedTypeBox;
-    private javax.swing.JTextField capacityText;
     private javax.swing.JButton createAttractButton;
     private javax.swing.JButton createRoomButton;
     private javax.swing.JButton createSeasonButton;
     private javax.swing.JButton createServiceButton;
     private javax.swing.JTextArea descriptionArea;
     private javax.swing.JComboBox endBox;
+    private javax.swing.JButton exitButton;
     private javax.swing.JComboBox hotelsBox;
     private javax.swing.JComboBox hotelsBox2;
     private javax.swing.JComboBox hotelsBox3;
@@ -732,9 +760,7 @@ public class AdministratorView extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
@@ -742,6 +768,7 @@ public class AdministratorView extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel6;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTabbedPane jTabbedPane2;
@@ -756,7 +783,6 @@ public class AdministratorView extends javax.swing.JFrame {
     private javax.swing.JTextField seasonNameText;
     private javax.swing.JTextField serviceCodeText;
     private javax.swing.JTextField serviceNameText;
-    private javax.swing.JComboBox sizeBox;
     private javax.swing.JComboBox startBox;
     // End of variables declaration//GEN-END:variables
 }

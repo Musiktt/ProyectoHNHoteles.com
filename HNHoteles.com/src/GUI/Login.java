@@ -43,7 +43,7 @@ public class Login extends javax.swing.JFrame {
         createHotelButton = new javax.swing.JButton();
         passwordFieldLogin = new javax.swing.JPasswordField();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel1.setText("Email");
 
@@ -64,6 +64,11 @@ public class Login extends javax.swing.JFrame {
         });
 
         createHotelButton.setText("Create Hotel");
+        createHotelButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                createHotelButtonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -137,8 +142,16 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_loginButtonActionPerformed
 
     private void createUserButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createUserButtonActionPerformed
-
+        CreateUser createUser = new CreateUser();
+        createUser.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_createUserButtonActionPerformed
+
+    private void createHotelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createHotelButtonActionPerformed
+        CreateHotel createHotel = new CreateHotel();
+        createHotel.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_createHotelButtonActionPerformed
 
     /**
      * @param args the command line arguments

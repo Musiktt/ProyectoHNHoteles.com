@@ -38,7 +38,6 @@ public class Additional {
     public static ArrayList<Client> clientsList = new ArrayList();
     public static ArrayList<Administrator> administratorsList = new ArrayList(); 
     public static ArrayList<Service> servicesList = new ArrayList();
-
    
     public Additional() {
     }
@@ -65,6 +64,9 @@ public class Additional {
     }
     public static void createRoom(String name,int roomNumber,String roomType,String bedType, int peopleCapacity, String roomSize, String roomDescription, boolean availability,Price price) {
         Additional.findHotel(name).getRoomsList().add(new RoomFactory().createRoom(roomNumber, roomType, bedType, peopleCapacity, roomSize, roomDescription, availability, price));
+    }
+    public static void createReservation(String name, String startDate, String endDate, String roomType, int total, Client personInCharge, int childrenIn, int adultsIn){
+        Additional.findHotel(name).getReservationsList().add(new Reservation(startDate, endDate, roomType, total, personInCharge, childrenIn,adultsIn));
     }
     //login methods
     public static Administrator loginAdministrator(String email, String password){
@@ -164,6 +166,16 @@ public class Additional {
         if(hotel.getRoomsList().size() > 0) {
             for(Room room : hotel.getRoomsList()){
                 if(room.getRoomNumber() == roomNumber){
+                    return room;
+                }
+            }
+        }
+        return null;        
+    }
+    public static Room findRoom(Hotel hotel, String type){
+        if(hotel.getRoomsList().size() > 0) {
+            for(Room room : hotel.getRoomsList()){
+                if(room.getRoomType().equals(type)){
                     return room;
                 }
             }
@@ -293,6 +305,49 @@ public class Additional {
                     return partnerNumber;
                 }
         }
+    }
+    
+    //Methods for reservations
+    public static Reservation findReservation(Client client, Hotel hotel){
+        if(hotel.getReservationsList().size() > 0) {
+            for(Reservation reservation : hotel.getReservationsList()){
+                if(reservation.getPersonInCharge().getName().equals(client.getName())){
+                    return reservation;
+                }
+            }
+        }
+        return null;      
+    }
+    public static int getHotelRoomsCapacity(Hotel hotel, String type){
+        int total=0;
+        if(!hotel.getRoomsList().isEmpty()){
+            for(int i=0; i<hotel.getRoomsList().size();i++){
+                if(hotel.getRoomsList().get(i).isAvailability() != false && hotel.getRoomsList().get(i).getRoomType().equals(type)){
+                    total+=hotel.getRoomsList().get(i).getPeopleCapacity();
+                }
+            }
+            return total;
+        }
+        return 0;
+    }
+    public static void setAvailability(Hotel hotel, String type){
+        int number = new Random().nextInt(hotel.getRoomsIn());
+        if(!hotel.getRoomsList().isEmpty()){
+            for(int i=0; i<hotel.getRoomsList().size();i++){
+                if(hotel.getRoomsList().get(i).isAvailability() != false && hotel.getRoomsList().get(i).getRoomType().equals(type) 
+                        && hotel.getRoomsList().get(i).getRoomNumber()==number){
+                    
+                    hotel.getRoomsList().get(i).setAvailability(false);
+                    return;
+                }
+            }
+        }
+    }
+    public static void completeReservation(){
+        
+    }    
+    public static void cancelReservation(){
+ 
     }
     
     //Methods in order to encrypt and decrypt any password

@@ -20,16 +20,15 @@ public class Reservation {
     private String startDate;
     private String endDate;
     private String roomType;
-    private double total;
+    private int total;
     private Client personInCharge;
     private int childrenIn;
     private int adultsIn;
-    private Hotel hotel;
 
     public Reservation() {
     }
 
-    public Reservation(String startDate, String endDate, String roomType, double total, Client personInCharge, int childrenIn, int adultsIn, Hotel hotel) {
+    public Reservation(String startDate, String endDate, String roomType, int total, Client personInCharge, int childrenIn, int adultsIn) {
         this.startDate = startDate;
         this.endDate = endDate;
         this.roomType = roomType;
@@ -37,7 +36,7 @@ public class Reservation {
         this.personInCharge = personInCharge;
         this.childrenIn = childrenIn;
         this.adultsIn = adultsIn;
-        this.hotel = hotel;
+
         this.rooms=new ArrayList<>();
     }
 
@@ -65,11 +64,11 @@ public class Reservation {
         this.roomType = roomType;
     }
 
-    public double getTotal() {
+    public int getTotal() {
         return total;
     }
 
-    public void setTotal(double total) {
+    public void setTotal(int total) {
         this.total = total;
     }
 
@@ -97,21 +96,14 @@ public class Reservation {
         this.adultsIn = adultsIn;
     }
 
-    public Hotel getHotel() {
-        return hotel;
-    }
-
-    public void setHotel(Hotel hotel) {
-        this.hotel = hotel;
-    }
-
     public ArrayList<Integer> getRooms() {
         return this.rooms;
     }
 
     @Override
     public String toString() {
-        return "Reservation{" + "startDate=" + startDate + ", endDate=" + endDate + ", roomType=" + roomType + ", total=" + total + ", personInCharge=" + personInCharge + ", childrenIn=" + childrenIn + ", adultsIn=" + adultsIn + ", hotel=" + hotel + '}';
+        return "Reservation{" + "startDate=" + startDate + ", endDate=" + endDate + ", roomType=" + roomType + ", total=" + total + ", personInCharge=" + personInCharge + ", childrenIn=" + childrenIn + ", adultsIn=" + adultsIn + '}';
     }
+    
     
 }

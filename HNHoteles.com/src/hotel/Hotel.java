@@ -8,7 +8,7 @@ package hotel;
 
 import factory.Room;
 import java.util.ArrayList;
-import user.Administrator;
+
 import user.Client;
 
 /**

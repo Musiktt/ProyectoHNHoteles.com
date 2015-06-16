@@ -87,34 +87,5 @@ public class Client extends User{
     public String toString() {
         return "Client{" + "partnerNumber=" + partnerNumber + ", country=" + country + ", phoneNumber=" + phoneNumber + ", coinType=" + coinType + ", cancelledReservations=" + cancelledReservations + ", pendingReservations=" + pendingReservations + ", completedReservations=" + completedReservations + '}';
     }
-    
-    //verifies if a reservation exist in the system
-    public boolean ifReservationExist(Reservation reservation){
-        for(Reservation r : this.pendingReservations){
-            if(reservation.equals(r)){
-                return true;
-            }
-        }
-        return false;
-    }
-        
-    public void completeReservation(Reservation reservation){
-        
-        if(ifReservationExist(reservation) != false){
-            this.pendingReservations.remove(reservation);
-            this.completedReservations.add(reservation);
-            Additional.completedReservations.add(reservation);
-        }
-    }    
-    public void cancelReservation(Reservation reservation){
-        
-        if(ifReservationExist(reservation) != false){
-            this.pendingReservations.remove(reservation);
-            this.cancelledReservations.add(reservation);
-            Additional.cancelledReservations.add(reservation);
-        }
-    }
-    
-    
-    
+  
 }

@@ -26,6 +26,7 @@ public class HNHotelesCom {
         Additional.createAdministrator(88901530, "USA", "Maggie", "Portman", "Female", "portman@gmail.com", "pass2");
         Additional.createClient(Additional.randomPartnerNumber(), "Japan", 0053116072, "Dollar", "Yamato", "Rinko", "Female", "rinko@gmail.com", "pass3");
         Additional.createClient(Additional.randomPartnerNumber(), "Mexico", 005255765544, "Dollar", "Pedro", "Dominguez", "Male", "dominguez@gmail.com", "pass4");
+        Additional.createSeason("Hotel Scarlett Spring", "High Season", "HS 1", "April", "September");
         Login login = new Login();
         
         login.setVisible(true);

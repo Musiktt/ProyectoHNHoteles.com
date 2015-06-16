@@ -15,9 +15,10 @@ import hotel.Season;
  */
 public class Individual extends Room{
 
-    public Individual(int roomNumber, String roomType,String bedType, int peopleCapacity, String roomSize, String roomDescription, Price price) {
-        super(roomNumber,roomType,bedType, peopleCapacity, roomSize, roomDescription,price);
+    public Individual(int roomNumber, String roomType, String bedType, int peopleCapacity, String roomSize, String roomDescription, boolean availability, Price price) {
+        super(roomNumber, roomType, bedType, peopleCapacity, roomSize, roomDescription, availability, price);
     }
+
 
     @Override
     public String getType() {

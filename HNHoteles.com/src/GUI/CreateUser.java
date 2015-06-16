@@ -90,6 +90,18 @@ public class CreateUser extends javax.swing.JFrame {
 
         countryBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Costa Rica", "Nicaragua", "Panama", "USA", "Canada", "Mexico", "Guatemala", "Honduras", "Colombia", "Venezuela", "Chile", "Argentina", "Peru", "Dominican Republic", "Puerto Rico", "Spain", "China", "Japan" }));
 
+        nameText.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                nameTextKeyTyped(evt);
+            }
+        });
+
+        lastText.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                lastTextKeyTyped(evt);
+            }
+        });
+
         emailText.setText("@gmail.com");
 
         createButton.setText("Create");
@@ -376,6 +388,8 @@ public class CreateUser extends javax.swing.JFrame {
                 }
                 else{
                     JOptionPane.showMessageDialog(this, "The password must have 6-20 characters and at least one number");
+                    passField.setText("");
+                    passFieldConfirm.setText("");
                 }
             }
         }
@@ -420,8 +434,8 @@ public class CreateUser extends javax.swing.JFrame {
                 
                         if(Additional.findClient(phone) == null && Additional.findClient(email2) == null){
                             Additional.createClient(partnerNumber, country2, phone, coinType,name2, lastName2, gender2, email2, encryptedPassword);
-                            //new Login().setVisible(true);
-                            //this.dispose();
+                            new Login().setVisible(true);
+                            this.dispose();
                         }
                         else{
                             JOptionPane.showMessageDialog(this, "An administrator already has that phone number and email address");
@@ -447,6 +461,32 @@ public class CreateUser extends javax.swing.JFrame {
         }
        
     }//GEN-LAST:event_createButton2ActionPerformed
+
+    private void nameTextKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_nameTextKeyTyped
+              
+        char confirm = evt.getKeyChar();
+        
+        if (Character.isDigit(confirm)){
+            //asks if it is a digit
+            getToolkit().beep();
+            //makes a sound
+            evt.consume();
+            //avoids a letter
+        }       
+    }//GEN-LAST:event_nameTextKeyTyped
+
+    private void lastTextKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_lastTextKeyTyped
+              
+        char confirm = evt.getKeyChar();
+        
+        if (Character.isDigit(confirm)){
+            //asks if it is a digit
+            getToolkit().beep();
+            //makes a sound
+            evt.consume();
+            //avoids a letter
+        }  
+    }//GEN-LAST:event_lastTextKeyTyped
 
     /**
      * @param args the command line arguments

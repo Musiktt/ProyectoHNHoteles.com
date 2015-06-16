@@ -11,12 +11,12 @@ package hotel;
  * @author Stward
  */
 public class Price {
-    private double amount;
+    private int amount;
 
     public Price() {
     }
 
-    public Price(double amount) {
+    public Price(int amount) {
         this.amount = amount;
     }
 
@@ -24,7 +24,7 @@ public class Price {
         return amount;
     }
 
-    public void setAmount(double amount) {
+    public void setAmount(int amount) {
         this.amount = amount;
     }
 

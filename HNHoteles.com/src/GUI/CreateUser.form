@@ -214,10 +214,16 @@
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="nameText">
+              <Events>
+                <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="nameTextKeyTyped"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel17">
             </Component>
             <Component class="javax.swing.JTextField" name="lastText">
+              <Events>
+                <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="lastTextKeyTyped"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="emailText">
               <Properties>

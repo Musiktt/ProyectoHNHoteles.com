@@ -31,17 +31,15 @@ public abstract class Room {
     public Room() {
     }
 
-    public Room(int roomNumber, String roomType, String bedType, int peopleCapacity, String roomSize, String roomDescription, Price price) {
+    public Room(int roomNumber, String roomType, String bedType, int peopleCapacity, String roomSize, String roomDescription, boolean availability, Price price) {
         this.roomNumber = roomNumber;
         this.roomType = roomType;
         this.bedType = bedType;
         this.peopleCapacity = peopleCapacity;
         this.roomSize = roomSize;
         this.roomDescription = roomDescription;
+        this.availability = availability;
         this.price = price;
-    
-        this.availability = true;
-
     }
     
     //constructor to storage
@@ -105,7 +103,11 @@ public abstract class Room {
     
     //Room's boolean information
     public boolean isAvailability() {
-        return this.availability;
+        return availability;
+    }
+
+    public void setAvailability(boolean availability) {
+        this.availability = availability;
     }
 
     public abstract String getType();

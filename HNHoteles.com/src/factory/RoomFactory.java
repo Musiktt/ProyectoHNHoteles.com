@@ -16,18 +16,18 @@ import hotel.Price;
 public class RoomFactory implements RoomFactoryCreator{
     
     @Override
-    public Room createRoom(int roomNumber,String roomType,String bedType, int peopleCapacity, String roomSize, String roomDescription, Price price) {
+    public Room createRoom(int roomNumber,String roomType,String bedType, int peopleCapacity, String roomSize, String roomDescription, boolean availability,Price price) {
         if(roomType.equals("Individual")){
-            return new Individual(roomNumber, roomType,bedType, peopleCapacity, roomSize, roomDescription, price);
+            return new Individual(roomNumber, roomType,bedType, peopleCapacity, roomSize, roomDescription,availability, price);
         }
         else if(roomType.equals("Double")){
-            return new Double(roomNumber, roomType,bedType, peopleCapacity, roomSize, roomDescription, price);
+            return new Double(roomNumber, roomType,bedType, peopleCapacity, roomSize, roomDescription,availability, price);
         }
         else if(roomType.equals("Family")){
-            return new Family(roomNumber, roomType,bedType, peopleCapacity, roomSize, roomDescription, price);
+            return new Family(roomNumber, roomType,bedType, peopleCapacity, roomSize, roomDescription,availability, price);
         }
         else if(roomType.equals("Suite")){
-            return new Suite(roomNumber, roomType,bedType, peopleCapacity, roomSize, roomDescription, price);
+            return new Suite(roomNumber, roomType,bedType, peopleCapacity, roomSize, roomDescription,availability, price);
         }
         return null;
     }

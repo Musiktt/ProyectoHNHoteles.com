@@ -70,23 +70,22 @@ public class Login extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(28, 28, 28)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(loginButton)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(16, 16, 16)
-                        .addComponent(createUserButton)
-                        .addGap(18, 18, 18)
-                        .addComponent(createHotelButton))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel1)
                             .addComponent(jLabel3))
                         .addGap(40, 40, 40)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(emailText, javax.swing.GroupLayout.DEFAULT_SIZE, 141, Short.MAX_VALUE)
-                            .addComponent(passwordFieldLogin))))
-                .addContainerGap(389, Short.MAX_VALUE))
+                            .addComponent(emailText)
+                            .addComponent(passwordFieldLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(createUserButton)
+                        .addGap(18, 18, 18)
+                        .addComponent(createHotelButton)))
+                .addContainerGap(373, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -120,7 +119,7 @@ public class Login extends javax.swing.JFrame {
             
             Administrator admin = Additional.loginAdministrator(email, password);
             if (admin != null){
-                new AdministratorView(admin).setVisible(true);
+                new AdministratorView().setVisible(true);
                 this.dispose();
                 
             }
@@ -128,7 +127,7 @@ public class Login extends javax.swing.JFrame {
         else if(Additional.findClient(email) != null){
             Client client = Additional.loginClient(email, password);
             if (client != null){
-                new ClientView(client).setVisible(true);
+                new ClientView().setVisible(true);
                 this.dispose();
             }
         }    

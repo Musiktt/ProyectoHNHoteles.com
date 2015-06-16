@@ -14,8 +14,8 @@ import hotel.Price;
  */
 public class Double extends Room{
 
-    public Double(int roomNumber, String roomType, String bedType, int peopleCapacity, String roomSize, String roomDescription, Price price) {
-        super(roomNumber, roomType,bedType, peopleCapacity, roomSize, roomDescription, price);
+    public Double(int roomNumber, String roomType, String bedType, int peopleCapacity, String roomSize, String roomDescription, boolean availability, Price price) {
+        super(roomNumber, roomType, bedType, peopleCapacity, roomSize, roomDescription, availability, price);
     }
 
     @Override

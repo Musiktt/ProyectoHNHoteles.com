@@ -25,7 +25,7 @@ public class Hotel {
     private String address;
     private String country;
     private int phoneNumber;
-    private int buildingDate;
+    private int buildingYear;
 
     private String hotelSize;
     private String checkInHour;
@@ -33,13 +33,13 @@ public class Hotel {
     
     private String lodgingType;//cabin, hotel, hostel, all-in, etc
     
-    private int stars;
+    private String stars;
     
     private boolean livingRoom;
-     private boolean terrace;
-     private boolean seaView;
-     private boolean allIn;
-     private boolean smokingArea;
+    private boolean terrace;
+    private boolean seaView;
+    private boolean allIn;
+    private boolean smokingArea;
     
     //lists
     private ArrayList<Attraction> attractionsList;
@@ -48,41 +48,42 @@ public class Hotel {
     private ArrayList<Service> servicesList;
     private ArrayList<Reservation> reservationsList;
     private ArrayList<Client> clientsList;
-    private ArrayList<Administrator> administratorList;
+    private ArrayList<Season> seasonsList;
     
 
     public Hotel() {
     }
 
-    public Hotel(String hotelDescription, int roomsIn,String name, String address, int phoneNumber, int buildingDate, String hotelSize, String checkInHour, String checkOutHour, String lodgingType, int stars) {
+    public Hotel(String hotelDescription, int roomsIn, String name, String address, String country, int phoneNumber, int buildingYear, String hotelSize, String checkInHour, String checkOutHour, String lodgingType, String stars, boolean livingRoom, boolean terrace, boolean seaView, boolean allIn, boolean smokingArea) {
         this.hotelDescription = hotelDescription;
         this.roomsIn = roomsIn;
-
         this.name = name;
         this.address = address;
-        this.country = "Costa Rica";
+        this.country = country;
         this.phoneNumber = phoneNumber;
-        this.buildingDate = buildingDate;
+        this.buildingYear = buildingYear;
         this.hotelSize = hotelSize;
         this.checkInHour = checkInHour;
         this.checkOutHour = checkOutHour;
         this.lodgingType = lodgingType;
         this.stars = stars;
-        
-        this.allIn = true;
-        this.livingRoom = true;
-        this.seaView = true;
-        this.smokingArea = true;
-        this.terrace = true;
-        
+        this.livingRoom = livingRoom;
+        this.terrace = terrace;
+        this.seaView = seaView;
+        this.allIn = allIn;
+        this.smokingArea = smokingArea;
+                
         this.attractionsList = new ArrayList<>();
         this.picturesList = new ArrayList<>();
         this.reservationsList = new ArrayList<>();
         this.roomsList = new ArrayList<>();
         this.servicesList = new ArrayList<>();
         this.clientsList = new ArrayList<>();
-        this.administratorList = new ArrayList<>();
+
+        this.seasonsList = new ArrayList<>();
     }
+
+    
 
     public String getHotelDescription() {
         return hotelDescription;
@@ -129,12 +130,12 @@ public class Hotel {
         this.phoneNumber = phoneNumber;
     }
 
-    public int getBuildingDate() {
-        return buildingDate;
+    public int getBuildingYear() {
+        return buildingYear;
     }
 
-    public void setBuildingDate(int buildingDate) {
-        this.buildingDate = buildingDate;
+    public void setBuildingYear(int buildingYear) {
+        this.buildingYear = buildingYear;
     }
 
     public String getHotelSize() {
@@ -169,33 +170,53 @@ public class Hotel {
         this.lodgingType = lodgingType;
     }
 
-    public int getStars() {
+    public String getStars() {
         return stars;
     }
 
-    public void setStars(int stars) {
+    public void setStars(String stars) {
         this.stars = stars;
     }
 
     //boolean information
     public boolean isLivingRoom() {
-        return this.livingRoom;
+        return livingRoom;
+    }
+
+    public void setLivingRoom(boolean livingRoom) {
+        this.livingRoom = livingRoom;
     }
 
     public boolean isTerrace() {
-        return this.terrace;
+        return terrace;
+    }
+
+    public void setTerrace(boolean terrace) {
+        this.terrace = terrace;
     }
 
     public boolean isSeaView() {
-        return this.seaView;
+        return seaView;
+    }
+
+    public void setSeaView(boolean seaView) {
+        this.seaView = seaView;
     }
 
     public boolean isAllIn() {
-        return this.allIn;
+        return allIn;
+    }
+
+    public void setAllIn(boolean allIn) {
+        this.allIn = allIn;
     }
 
     public boolean isSmokingArea() {
-        return this.smokingArea;
+        return smokingArea;
+    }
+
+    public void setSmokingArea(boolean smokingArea) {
+        this.smokingArea = smokingArea;
     }
     
     //all Hotel's lists
@@ -223,13 +244,12 @@ public class Hotel {
         return this.clientsList;
     }
 
-    public ArrayList<Administrator> getAdministratorList() {
-        return this.administratorList;
-    }
-
-    @Override
-    public String toString() {
-        return "Hotel{" + "hotelDescription=" + hotelDescription + ", roomsIn=" + roomsIn + ", name=" + name + ", address=" + address + ", country=" + country + ", phoneNumber=" + phoneNumber + ", buildingDate=" + buildingDate + ", hotelSize=" + hotelSize + ", checkInHour=" + checkInHour + ", checkOutHour=" + checkOutHour + ", lodgingType=" + lodgingType + ", stars=" + stars + '}';
+    public ArrayList<Season> getSeasonsList() {
+        return this.seasonsList;
     }
     
+    @Override
+    public String toString() {
+        return "Hotel{" + "hotelDescription=" + hotelDescription + ", roomsIn=" + roomsIn + ", name=" + name + ", address=" + address + ", country=" + country + ", phoneNumber=" + phoneNumber + ", buildingYear=" + buildingYear + ", hotelSize=" + hotelSize + ", checkInHour=" + checkInHour + ", checkOutHour=" + checkOutHour + ", lodgingType=" + lodgingType + ", stars=" + stars + ", livingRoom=" + livingRoom + ", terrace=" + terrace + ", seaView=" + seaView + ", allIn=" + allIn + ", smokingArea=" + smokingArea + '}';
+    }  
 }

@@ -318,6 +318,7 @@ public class Additional {
         }
         return null;      
     }
+    /*
     public static int getHotelRoomsCapacity(Hotel hotel, String type){
         int total=0;
         if(!hotel.getRoomsList().isEmpty()){
@@ -330,24 +331,24 @@ public class Additional {
         }
         return 0;
     }
-    public static void setAvailability(Hotel hotel, String type){
-        int number = new Random().nextInt(hotel.getRoomsIn());
-        if(!hotel.getRoomsList().isEmpty()){
-            for(int i=0; i<hotel.getRoomsList().size();i++){
-                if(hotel.getRoomsList().get(i).isAvailability() != false && hotel.getRoomsList().get(i).getRoomType().equals(type) 
-                        && hotel.getRoomsList().get(i).getRoomNumber()==number){
-                    
-                    hotel.getRoomsList().get(i).setAvailability(false);
-                    return;
-                }
-            }
+    */
+    public static void setAvailability(Hotel hotel, int roomNumber){
+        if(Additional.findRoom(hotel, roomNumber) != null){
+            Additional.findRoom(hotel, roomNumber).setAvailability(false);
         }
     }
-    public static void completeReservation(){
-        
+    public static void completeReservation(Client client, Hotel hotel){
+        if(Additional.findReservation(client, hotel) != null){
+            hotel.getReservationsList().remove(Additional.findReservation(client, hotel));
+            Additional.completedReservations.add(Additional.findReservation(client, hotel));
+            
+        }
     }    
-    public static void cancelReservation(){
- 
+    public static void cancelReservation(Client client, Hotel hotel){
+        if(Additional.findReservation(client, hotel) != null){
+            hotel.getReservationsList().remove(Additional.findReservation(client, hotel));
+            Additional.cancelledReservations.add(Additional.findReservation(client, hotel));
+        }
     }
     
     //Methods in order to encrypt and decrypt any password
